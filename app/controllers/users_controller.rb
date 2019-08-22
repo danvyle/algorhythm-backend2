@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    
-    BACKEND_URL = 'http://localhost:8888'
+
+    BACKEND_URL = 'https://algorhythm-nation.herokuapp.com/'
     FRONTEND_URL = 'http://localhost:3000'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
@@ -10,13 +10,13 @@ class UsersController < ApplicationController
             client_id: ENV['CLIENT_ID'],
             response_type: "code",
             redirect_uri: "#{BACKEND_URL}/callback",
-            scope: "user-library-read 
-                    playlist-read-collaborative 
-                    playlist-modify-private 
-                    playlist-modify-public 
-                    playlist-read-private 
-                    user-top-read 
-                    streaming 
+            scope: "user-library-read
+                    playlist-read-collaborative
+                    playlist-modify-private
+                    playlist-modify-public
+                    playlist-read-private
+                    user-top-read
+                    streaming
                     user-read-email",
             show_dialog: true
         }
@@ -24,18 +24,18 @@ class UsersController < ApplicationController
         # redirects user's browser to Spotify's authorization page, which details scopes the app is requestiong
         redirect_to "#{url}?#{query_params.to_query}"
     end
-    
+
     def callback
         if params[:error]
             # return error if there is one
             puts 'LOGIN ERROR', params
-            redirect_to 'http://localhost:8888/login/failure'
+            redirect_to 'https://algorhythm-nation.herokuapp.com/login/failure'
         else
             # assemble and send request to spotify for access and refresh token
             body = {
                 grant_type: 'authorization_code',
                 code: params[:code],
-                redirect_uri: 'http://localhost:8888/callback',
+                redirect_uri: 'https://algorhythm-nation.herokuapp.com/callback',
                 client_id: ENV['CLIENT_ID'],
                 client_secret: ENV['CLIENT_SECRET']
             }
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
             user_response = RestClient.get("#{SPOTIFY_API}/me", header)
             # convert response.body to json fro assignment
             user_params = JSON.parse(user_response.body)
-            
+
             # If the user already exists, set @user to the user, else create a new User
             if User.find_by(username: user_params['display_name'])
                 @user = User.find_by(username: user_params['display_name'])
@@ -68,12 +68,12 @@ class UsersController < ApplicationController
             # fetch user's playlists
             @user.fetch_playlists
             @user.fetch_library
-                
+
             # pass back the access token to the front end
             redirect_to "http://localhost:3000/user?token=#{@user.access_token}"
         end
     end
-    
+
     def loginFailure
         puts 'login failure here'
         redirect_to "#{FRONTEND_URL}/error"
@@ -85,9 +85,9 @@ class UsersController < ApplicationController
     end
 
     private
-    
+
         def set_user
-            
+
         end
 
 end

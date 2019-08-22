@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
     # before_action :set_user
 
-    BACKEND_URL = 'http://localhost:8888'
+    BACKEND_URL = 'https://algorhythm-nation.herokuapp.com/'
     FRONTEND_URL = 'http://localhost:3000'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
@@ -45,7 +45,7 @@ class PlaylistsController < ApplicationController
             'Content-Type': 'application/json'
         }
         body = {
-            name: "#{params[:playlistname]} [Algorhythms]", 
+            name: "#{params[:playlistname]} [Algorhythms]",
         }
         playlist_response = RestClient.post("https://api.spotify.com/v1/users/#{current_user.spotify_id}/playlists", body.to_json, header)
         playlist_params = JSON.parse(playlist_response.body)
@@ -71,7 +71,7 @@ class PlaylistsController < ApplicationController
 
         render json: playlist
     end
-    
+
     private
 
     def set_user
