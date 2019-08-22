@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'http://localhost:3000'
+    FRONTEND_URL = 'http://localhost:https://algorhythm-nation.netlify.com'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def login
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
             @user.fetch_library
 
             # pass back the access token to the front end
-            redirect_to "http://localhost:3000/user?token=#{@user.access_token}"
+            redirect_to "https://algorhythm-nation.netlify.com/user?token=#{@user.access_token}"
         end
     end
 
