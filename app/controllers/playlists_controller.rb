@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
     # before_action :set_user
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'https://algorhythm-nation.netlify.com'
+    FRONTEND_URL = 'http://localhost:3000'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def index
@@ -69,7 +69,7 @@ class PlaylistsController < ApplicationController
         songs_array = params[:uris]
         songs_array.each{|song| playlist.songs << Song.find_by(uri: song)}
 
-        render json: playlist
+
     end
 
     private

@@ -4,7 +4,7 @@ class Playlist < ApplicationRecord
     # has_many :artists, :through => :songs
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'https://algorhythm-nation.netlify.com'
+    FRONTEND_URL = 'http://localhost:3000'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def fetch_songs(token)
