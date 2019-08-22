@@ -3,7 +3,7 @@ class Playlist < ApplicationRecord
     has_and_belongs_to_many :songs
     # has_many :artists, :through => :songs
 
-    BACKEND_URL = 'https://algorhythm-nation.herokuapp.com/'
+    BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
     FRONTEND_URL = 'https://algorhythm-nation.netlify.com'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 

@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         if params[:error]
             # return error if there is one
             puts 'LOGIN ERROR', params
-            redirect_to 'https://algorhythm-nation.herokuapp.com/login/failure'
+            redirect_to 'https://algorhythm-nation.netlify.com/login/failure'
         else
             # assemble and send request to spotify for access and refresh token
             body = {
