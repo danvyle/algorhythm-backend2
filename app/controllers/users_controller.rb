@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'http://localhost:https://algorhythm-nation.netlify.com'
+    FRONTEND_URL = 'https://algorhythm-nation.netlify.com'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def login
