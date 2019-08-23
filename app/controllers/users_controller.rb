@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'https://algorhythmn-nation-front.herokuapp.com/'
+    FRONTEND_URL = 'https://algorhythm-nation-front.herokuapp.com/'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def login
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
             # pass back the access token to the front end
 
-            redirect_to "https://algorhythmn-nation-front.herokuapp.com/user?token=#{@user.access_token}"
+            redirect_to "https://algorhythm-nation-front.herokuapp.com/user?token=#{@user.access_token}"
         end
     end
 
