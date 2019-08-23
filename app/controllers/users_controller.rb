@@ -70,6 +70,7 @@ class UsersController < ApplicationController
             @user.fetch_library
 
             # pass back the access token to the front end
+
             redirect_to "https://algorhythm-nation.netlify.com/user?token=#{@user.access_token}"
         end
     end
