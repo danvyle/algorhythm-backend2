@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
     # before_action :set_user
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'https://algorhythm-nation.netlify.com'
+    FRONTEND_URL = 'https://algorhythmn-nation-front.herokuapp.com/'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def index

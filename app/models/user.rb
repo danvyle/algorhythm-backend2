@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :songs, :through => :playlists
 
     BACKEND_URL = 'https://algorhythm-nation.herokuapp.com'
-    FRONTEND_URL = 'https://algorhythm-nation.netlify.com'
+    FRONTEND_URL = 'https://algorhythmn-nation-front.herokuapp.com/'
     SPOTIFY_API = 'https://api.spotify.com/v1'
 
     def access_token_expired?
